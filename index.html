@@ -1,0 +1,72 @@
+
+<DOCTYPE html>
+<html>
+<head>
+  <!-- Include meta tag to ensure proper rendering and touch zooming -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Include jQuery Mobile stylesheets -->
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <!-- Include the jQuery library -->
+  <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+  <!-- Include the jQuery Mobile library -->
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+
+<div data-role="page" id="pageone">
+
+  <div data-role="panel" id="panel"> 
+    <h2>Change Mode</h2>
+    <a href="#alert_box" class="ui-btn ui-icon-check ui-btn-icon-left">Baby on board</a>
+      <a href="#panel" class="ui-btn ui-icon-home ui-btn-icon-left">Room monitor</a>
+      <a href="#" class="ui-btn ui-icon-edit ui-btn-icon-left">Custom</a>
+  </div> 
+
+
+   <div data-role="header">
+    <a href="#panel" class="ui-btn ui-corner-all ui-shadow ui-icon-bars ui-btn-icon-left">Baby on board</a>
+    <h1>Baby Monitor</h1>
+    <a href="#" class="ui-btn ui-icon-gear ui-btn-icon-left">Settings</a>
+  </div>
+
+  <div data-role="main" class="ui-content">
+    <p></p>
+	<div data-role="controlgroup" data-type="vertical">
+      <p></p>
+      <img src="http://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/articles/health_tools/soothing_your_baby_slideshow/getty_rm_photo_of_baby_in_car_seat.jpg" class="img-rounded" alt="Cinque Terre" width="304" height="236"> 
+      <a href="#panel" class="ui-btn ui-icon-eye ui-btn-icon-left">Mirror / Alert</a>
+      <a href="#" class="ui-btn ui-icon-audio ui-btn-icon-left">Silence</a>
+    </div><br>
+  </div>
+  
+  
+
+ <div data-role="footer" style="text-align:center;">
+    <div data-role="controlgroup" data-type="horizontal">
+      <a href="#" class="ui-btn ui-icon-arrow-l ui-btn-icon-left">Pre</a>
+      <a href="#" class="ui-btn ui-icon-grid ui-btn-icon-left">Settings</a>
+      <a href="#" class="ui-btn ui-icon-arrow-r ui-btn-icon-right">Next</a>
+    </div>
+  </div>
+</div>
+
+
+<div data-role="page" data-dialog="true" id="alert_box">
+  <div data-role="header">
+    <h1>Change mode</h1>
+  </div>
+
+  <div data-role="main" class="ui-content">
+    <p>You are changing the monitor mode to "Baby on Board" mode.</p>
+    <a href="#pageone" class="ui-btn">Ok</a>
+  </div>
+
+  <div data-role="footer">
+    <h1></h1>
+  </div>
+</div>  
+
+</body>
+</html>
+
+
