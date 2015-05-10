@@ -49,7 +49,7 @@ module.exports = function (socket) {
 		  socket.emit('alert',{});
 	    }
 	  }  
-    }
+    
 
 
 	});	
