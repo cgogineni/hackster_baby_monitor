@@ -61,6 +61,12 @@ function validateIP() {
 				if (!isAlertBox) {
 				   console.log("ALERT");
 				   window.location.assign("#baby_alone_alert"); 
+				   navigator.notification.alert(
+                "Your Baby Is Alone!",  // message
+                "",                     // callback
+                'Save The Baby!',            // title
+                'Ok'                  // buttonName
+            );
 				}
 					
 				
