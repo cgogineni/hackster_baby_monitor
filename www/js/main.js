@@ -32,7 +32,7 @@ function validateIP() {
     try {
             // MODIFY THIS TO THE APPROPRIATE URL IF IT IS NOT BEING RUN LOCALLY
      
-           document.getElementById('submitbtn').style.display = "none";
+           //document.getElementById('submitbtn').style.display = "none";
            var socket = io.connect('http://192.168.43.123:8080');
            console.log("after io.connect");       
            window.location.assign("#select_box");
