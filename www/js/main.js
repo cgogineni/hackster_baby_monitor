@@ -117,6 +117,7 @@ var isStream = false;
 Function: validateIP()
 Description: Attempt to connect to server/Intel IoT platform
 */
+
 function validateIP() {
     'use strict';
     var socket,
@@ -208,4 +209,6 @@ function startStream() {
     
     isStream = true;
 }
+
+
 
