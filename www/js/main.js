@@ -163,6 +163,16 @@ function validateIP() {
                 img.src = 'data:image/png;base64,' + base64String;
             });
 
+			socket.on('alert',function(options) {
+				
+
+			});
+	    
+			socket.on('tether',function(options) {
+				//Render tethering
+			
+			});
+
             //Connect to Server
  /*
             socket = io.connect("http://" + ip_addr + ":" + port);

@@ -21,26 +21,35 @@ module.exports = function (socket) {
       if (err) throw err;
 
       im.detectObject('./node_modules/opencv/data/haarcascade_frontalface_alt2.xml', {}, function(err, faces) {
-        if (err) throw err;
+      if (err) throw err;
 
-        for (var i = 0; i < faces.length; i++) {
-          face = faces[i];
-          im.rectangle([face.x, face.y], [face.x + face.width, face.y + face.height], rectColor, rectThickness);
-        }
-
-        socket.emit('frame', { buffer: im.toBuffer() });
-	var sys = require('sys'),
-	spawn = require('child_process').spawn,
-	val = spawn('python', ["/home/root/hackster_baby_monitor/face-detection-node-opencv/server/lib/routes/wifi_strength_calc.py"]);
-	val.stdout.on('data', function(output) {
-	var temp = String(output);
-	var wifi_val  = parseInt(temp.substring(0,2));	
-	threshold1 = 50;
-	threshold2 = 60;
-	if(wifi_val < threshold1)
-	{
-		//Send request to client: Baby is left inside car!!!
-	}
+      for (var i = 0; i < faces.length; i++) {
+	    face = faces[i];
+        im.rectangle([face.x, face.y], [face.x + face.width, face.y + face.height], rectColor, rectThickness);
+      }
+       
+      if (faces.length != 0) {
+		   
+		//Create clientside callback
+		//Tether or stream option   
+	    socket.emit('frame', { buffer: im.toBuffer() });
+	    
+      //Check wifi strength   
+	    var sys = require('sys'),
+	    spawn = require('child_process').spawn,
+	    val = spawn('python', ["/home/root/hackster_baby_monitor/face-detection-node-opencv/server/lib/routes/wifi_strength_calc.py"]);
+	    val.stdout.on('data', function(output) {
+	    var temp = String(output);
+	    var wifi_val  = parseInt(temp.substring(0,2));	
+	    threshold1 = 50;
+	    //threshold2 = 60;
+	
+        if(wifi_val < threshold1) {
+		  //Send request to client: Baby is left inside car!!!
+		  socket.emit('alert',{});
+	    }
+	  }  
+    }
 
 
 	});	
