@@ -110,6 +110,8 @@ function plot() {
     }
 }
 
+var isAlertBox = false;
+
 /*
 Function: validateIP()
 Description: Attempt to connect to server/Intel IoT platform
@@ -164,6 +166,11 @@ function validateIP() {
             });
 
 			socket.on('alert',function(options) {
+				if (!alertBox) {
+				   console.log("ALERT");
+				   window.location="#alert_box"; 
+				}
+					
 				
 
 			});
@@ -174,34 +181,6 @@ function validateIP() {
 			});
 
             //Connect to Server
- /*
-            socket = io.connect("http://" + ip_addr + ":" + port);
-            console.log("am here");
-
-            //Attach a 'connected' event handler to the socket
-            socket.on("connected", function (message) {
-                
-                //Apache Cordova Notification
-                navigator.notification.alert(
-                    "Great Job!",  // message
-                    "",                     // callback
-                    'You are Connected!',            // title
-                    'Ok'                  // buttonName
-                );
-
-                //Set all Back button to not show
-                $.ui.showBackButton = false;
-                //Load page with transition
-                $.ui.loadContent("#main", false, false, "fade");
-            });
-
-            socket.on("message", function (message) {
-                chart_data.push(message);
-                plot();
-                //Update log
-                $("#feedback_log").text("Last Updated at " + Date().substr(0, 21));
-            });
-            */
         } catch (e) {
             navigator.notification.alert(
                 "Server Not Available!",  // message
