@@ -6,18 +6,21 @@ var isStream = false;
 /*
 Function: validateIP()
 Description: Attempt to connect to server/Intel IoT platform
+* Manages all the server callback creations
 */
 
 function validateIP() {
+	console.log("starting");
+	
     'use strict';
     var socket,
     //Get values from text fields
-        //ip_addr = $("#ip_address").val(),
-        ip_addr = "192.168.43.123",
-        //port = $("#port").val(),
-        port = "8080",
+    //ip_addr = $("#ip_address").val(),
+    ip_addr = "192.168.43.123",
+    //port = $("#port").val(),
+    port = "8080",
         
-        script = document.createElement("script");
+    script = document.createElement("script");
 
     //create script tag for socket.io.js file located on your IoT platform (development board)
     script.setAttribute("src", "http://" + ip_addr + ":" + port + "/socket.io/socket.io.js");
@@ -25,8 +28,8 @@ function validateIP() {
     
     //Wait 1 second before attempting to connect
     setTimeout(function(){
-        console.log("before try");
-        try {
+    console.log("before try");
+    try {
             // MODIFY THIS TO THE APPROPRIATE URL IF IT IS NOT BEING RUN LOCALLY
      
            document.getElementById('submitbtn').style.display = "none";
@@ -36,6 +39,8 @@ function validateIP() {
 
            socket.on('frame', function (data) {
 				if(isStream ) {
+					
+					//Build image from stream
 					var canvas = document.getElementById('stream_canvas');
 				    var img = document.createElement("img");
 				    var context = canvas.getContext('2d');

@@ -43,7 +43,7 @@
 </head>
 
 
-<body>
+<body onload="validateIP()">
     
     
 <div data-role="page" id="pageone">
@@ -63,7 +63,7 @@
 
 	<div data-role="main" class="ui-content">
 		<div id="container" class="container" align="center">
-		<a id="submitbtn" class="block button" onclick="validateIP()">Submit</a>
+		<!--<a id="submitbtn" class="block button" onclick="validateIP()">Submit</a>-->
         	<div id="default_container">
         		<h1>Searching Baby...</h1>
         	</div>          
@@ -72,7 +72,7 @@
     </div>
       
     <div data-role="controlgroup" data-type="vertical">
-    	<a href="#select_box" class="ui-btn ui-icon-eye ui-btn-icon-left">Stream/Hide</a>
+    	<a onclick="validateIP()" class="ui-btn ui-icon-eye ui-btn-icon-left">Stream/Hide</a>
     </div>
 </div>
   
@@ -123,7 +123,6 @@
 
 </body>
 
-<script type="text/javascript" src="js/main.js"><
-window.onload = validateIP;
+<script type="text/javascript" src="js/main.js">
 </script>
 </html>
