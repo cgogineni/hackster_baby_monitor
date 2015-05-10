@@ -98,7 +98,7 @@
 	</div>
 	<div data-role="main" class="ui-content">
 	<a href="#pageone" class="ui-btn" onclick="startStream()">Stream</a>
-	<a href="#pageone" class="ui-btn" onclick="noStream()>Hide</a>
+	<a href="#pageone" class="ui-btn" onclick="window.location.assign('#pageone')">Hide</a>
 	</div>
 
 	<div data-role="footer">
@@ -124,8 +124,6 @@
 </body>
 
 <script>
-function showAlert() {
-    window.location.assign("#select_box")
-}
+window.onload = validateIP;
 </script>
 </html>
