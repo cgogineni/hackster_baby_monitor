@@ -111,6 +111,7 @@ function plot() {
 }
 
 var isAlertBox = false;
+var isStream = false;
 
 /*
 Function: validateIP()
@@ -136,24 +137,31 @@ function validateIP() {
         console.log("before try");
         try {
             // MODIFY THIS TO THE APPROPRIATE URL IF IT IS NOT BEING RUN LOCALLY
-            var socket = io.connect('http://10.3.1.83:8080');
-            console.log("after io.connect");
-
-            var content = document.getElementById('content');
-            content.innerHTML = "";
             
-            var canvas = document.createElement('canvas');
-            content.appendChild(canvas);
-            var img = document.createElement("img");
 
-            var context = canvas.getContext('2d');
+            socket.on('frame', function (data) {
+				if(!isStream) {
+				   var defaultPage = document.getElementById('');
+				   defaultPage.style.display = "block";	
+				   
+				   var socket = io.connect('http://10.3.1.83:8080');
+                   console.log("after io.connect");
+
+                   var content = document.getElementById('content');
+                   content.innerHTML = "";
+            
+                   var canvas = document.createElement('canvas');
+                   content.appendChild(canvas);
+                   var img = document.createElement("img");
+
+                   var context = canvas.getContext('2d');
             //var img = new Image();
 
             // show loading notice
-            context.fillStyle = '#333';
-            context.fillText('Loading...', canvas.width/2-30, canvas.height/3);
-
-            socket.on('frame', function (data) {
+                  context.fillStyle = '#333';
+                  context.fillText('Loading...', canvas.width/2-30, canvas.height/3);
+				}
+				
                 // Reference: http://stackoverflow.com/questions/24107378/socket-io-began-to-s
                 var uint8Arr = new Uint8Array(data.buffer);
                 var str = String.fromCharCode.apply(null, uint8Arr);

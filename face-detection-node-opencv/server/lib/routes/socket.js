@@ -31,8 +31,7 @@ module.exports = function (socket) {
       if (faces.length != 0) {
 		   
 		//Create clientside callback
-		//Tether or stream option   
-		socket.emity
+		//Tether or stream option
 	    socket.emit('frame', { buffer: im.toBuffer() });
 	    
       //Check wifi strength   
