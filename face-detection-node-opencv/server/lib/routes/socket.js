@@ -31,18 +31,17 @@ module.exports = function (socket) {
         socket.emit('frame', { buffer: im.toBuffer() });
 	var sys = require('sys'),
 	spawn = require('child_process').spawn,
-	val = spawn('python', ["wifi_strength_calc.py"]);
+	val = spawn('python', ["/home/root/hackster_baby_monitor/face-detection-node-opencv/server/lib/routes/wifi_strength_calc.py"]);
 	val.stdout.on('data', function(output) {
-		var temp = String(output);
-		console.log(temp);
-		var fs = require('fs');
-		fs.writeFile("/tmp/test", temp, function(err) {
-		    if(err) {
-		        return console.log(err);
-		    }
+	var temp = String(output);
+	var wifi_val  = parseInt(temp.substring(0,2));	
+	threshold1 = 50;
+	threshold2 = 60;
+	if(wifi_val < threshold1)
+	{
+		//Send request to client: Baby is left inside car!!!
+	}
 
-		    console.log("The file was saved!");
-		}); 
 
 	});	
 
