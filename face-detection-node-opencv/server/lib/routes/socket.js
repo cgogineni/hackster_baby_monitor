@@ -48,8 +48,9 @@ module.exports = function (socket) {
 		  //Send request to client: Baby is left inside car!!!
 		  socket.emit('alert',{});
 	      }
-	    });	
-	  }
+	    });
+	}	
+	  });
     });
   }, camInterval);
 };
