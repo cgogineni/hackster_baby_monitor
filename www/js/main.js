@@ -141,13 +141,12 @@ function validateIP() {
 
             socket.on('frame', function (data) {
 				if(!isStream) {
-				   var defaultPage = document.getElementById('');
-				   defaultPage.style.display = "block";	
+				   wantStream();	
 				   
 				   var socket = io.connect('http://10.3.1.83:8080');
                    console.log("after io.connect");
 
-                   var content = document.getElementById('content');
+                   var content = document.getElementById('container');
                    content.innerHTML = "";
             
                    var canvas = document.createElement('canvas');
@@ -200,5 +199,12 @@ function validateIP() {
     
     }, 1000);
 
+}
+
+function startStream() {
+	isStream = true;
+	
+	var defaultPage = document.getElementById('default_container');
+    defaultPage.style.display = "none";
 }
 

@@ -62,12 +62,13 @@
 	</div>
 
 	<div data-role="main" class="ui-content">
-		<div class="container" align="center">
+		<div id="container" class="container" align="center">
 		<a class="block button" onclick="validateIP()">Submit</a>
         	<div id="default_container">
         		<h1>Searching Baby...</h1>
         	</div>          
-     		<div id="video_container" style="display: none">Video Stream</div> 
+     		<div id="video_container" style="display: none">Video Stream
+     		</div> 
     </div>
       
     <div data-role="controlgroup" data-type="vertical">
@@ -96,8 +97,8 @@
 	<h1>Selete a mode</h1>
 	</div>
 	<div data-role="main" class="ui-content">
-	<a href="#pageone" class="ui-btn">Stream</a>
-	<a href="#pageone" class="ui-btn">Hide</a>
+	<a href="#pageone" class="ui-btn" onclick="startStream()">Stream</a>
+	<a href="#pageone" class="ui-btn" onclick="noStream()>Hide</a>
 	</div>
 
 	<div data-role="footer">
