@@ -32,6 +32,7 @@ module.exports = function (socket) {
 		   
 		//Create clientside callback
 		//Tether or stream option   
+		socket.emity
 	    socket.emit('frame', { buffer: im.toBuffer() });
 	    
       //Check wifi strength   
@@ -39,22 +40,16 @@ module.exports = function (socket) {
 	    spawn = require('child_process').spawn,
 	    val = spawn('python', ["/home/root/hackster_baby_monitor/face-detection-node-opencv/server/lib/routes/wifi_strength_calc.py"]);
 	    val.stdout.on('data', function(output) {
-	    var temp = String(output);
-	    var wifi_val  = parseInt(temp.substring(0,2));	
-	    threshold1 = 50;
+	      var temp = String(output);
+	      var wifi_val  = parseInt(temp.substring(0,2));	
+	      threshold1 = 50;
 	    //threshold2 = 60;
-	
-        if(wifi_val < threshold1) {
+	      if(wifi_val < threshold1) {
 		  //Send request to client: Baby is left inside car!!!
 		  socket.emit('alert',{});
-	    }
-	  }  
-    
-
-
-	});	
-
-      });
+	      }
+	    });	
+	  }
     });
   }, camInterval);
 };
