@@ -144,8 +144,9 @@ function validateIP() {
 
            socket.on('frame', function (data) {
 				if(isStream ) {
-					canvas = document.getElementById('stream_canvas');
+					var canvas = document.getElementById('stream_canvas');
 				    var img = document.createElement("img");
+				    var context = canvas.getContext('2d');
 				
                 // Reference: http://stackoverflow.com/questions/24107378/socket-io-began-to-s
                     var uint8Arr = new Uint8Array(data.buffer);
@@ -160,7 +161,7 @@ function validateIP() {
             });
 
 			socket.on('alert',function(options) {
-				if (!alertBox) {
+				if (!isAlertBox) {
 				   console.log("ALERT");
 				   window.location.assign("#alert_box"); 
 				}
