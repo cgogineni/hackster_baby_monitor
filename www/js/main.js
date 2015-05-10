@@ -13,7 +13,7 @@ function validateIP() {
     var socket,
     //Get values from text fields
         //ip_addr = $("#ip_address").val(),
-        ip_addr = "192.168.43.23",
+        ip_addr = "192.168.43.123",
         //port = $("#port").val(),
         port = "8080",
         
@@ -29,7 +29,8 @@ function validateIP() {
         try {
             // MODIFY THIS TO THE APPROPRIATE URL IF IT IS NOT BEING RUN LOCALLY
      
-           var socket = io.connect('http://192.168.43.23:8080');
+           document.getElementById('submitbtn').style.display = "none";
+           var socket = io.connect('http://192.168.43.123:8080');
            console.log("after io.connect");       
            window.location.assign("#select_box");
 
@@ -54,7 +55,7 @@ function validateIP() {
 			socket.on('alert',function(options) {
 				if (!isAlertBox) {
 				   console.log("ALERT");
-				   window.location.assign("#alert_box"); 
+				   window.location.assign("#baby_alone_alert"); 
 				}
 					
 				
